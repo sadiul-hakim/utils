@@ -15,10 +15,6 @@ public class UserService {
     @Sha256
     private PasswordEncryption passwordEncryption;
 
-    public UserService(UserRepository userRepository, PasswordEncryption passwordEncryption) {
-        this.userRepository = userRepository;
-        this.passwordEncryption = passwordEncryption;
-    }
     
     public Object saveUser(User user){
         user.setPassword(passwordEncryption.encrypt(user.getPassword()));
